@@ -39,7 +39,7 @@
 				</div>
 
 				<div class="description">
-					<h3 class="big-bold">{{ product.short_desc}}</h3>
+					<h3 class="big-bold">{{ product.name}}</h3>
 					<h3 class="red">горячее предложение</h3>
 					<p class="price"> {{ product.price }} <span>руб</span></p>
 					<a href="{% url 'basket:add' pk=product.pk %}" class="red-button">

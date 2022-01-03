@@ -9,6 +9,13 @@
                 {{ user.first_name|default:'Пользователь' }}
             </a>
         </li>
+        {% if user.is_superuser %}
+            <li>
+                <a href="{% url 'admin_staff:users' %}">
+                    админка
+                </a>
+            </li>
+        {% endif %}
     {% endif %}
     <li>
         {% if user.is_authenticated %}
@@ -19,8 +26,8 @@
     </li>
     {% if basket %}
         <li>
-            <a href="{% url 'basket:index' %}">
-                <span style="width: auto">
+            <a href="{% url 'basket:index' %}" class="basket">
+                <span>
                     {{ basket.0.total_cost|floatformat:0 }} руб
                     ({{ basket.0.total_quantity }} шт)
                 </span>
