@@ -1,6 +1,6 @@
 <a href="{% url 'index' %}" class="logo"></a>
 <ul class="menu">
-    <li><a href="{% url 'index' %}" class="active">домой</a></li>
+    <li><a href="{% url 'index' %}">домой</a></li>
     <li><a href="{% url 'products:index' %}">продукты</a></li>
     <li><a href="{% url 'contact' %}">контакты</a></li>
     {% if user.is_authenticated %}
@@ -17,13 +17,15 @@
           <a href="{% url 'auth:login' %}">войти</a>
         {% endif %}
     </li>
-    <li>
-        <a href="{% url 'basket:index' %}" class="basket">
-            <span>
-                {% if basket %} {{ basket|length }} {% endif %}
-            </span>
-        </a>
-
-    </li>
+    {% if basket %}
+        <li>
+            <a href="{% url 'basket:index' %}">
+                <span style="width: auto">
+                    {{ basket.0.total_cost|floatformat:0 }} руб
+                    ({{ basket.0.total_quantity }} шт)
+                </span>
+            </a>
+        </li>
+    {% endif %}
 </ul>
 <a href="#" class="search"></a>
