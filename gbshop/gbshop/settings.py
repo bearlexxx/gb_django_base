@@ -40,7 +40,12 @@ INSTALLED_APPS = [
 
     'mainapp',
     'productsapp',
+    'authapp',
+    'basketapp',
 ]
+
+AUTH_USER_MODEL = 'authapp.ShopUser'
+LOGIN_URL = '/auth/login/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -122,6 +127,9 @@ STATIC_URL = 'static/'
 STATICFILES_DIRES = (
     os.path.join(BASE_DIR, "gbshop", "static")
 )
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

@@ -1,0 +1,47 @@
+[
+  {
+    "category": 3,
+    "name": "Стул",
+    "image": "products_images/product-4.jpg",
+    "short_desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    "price": "2000.00",
+    "quantity": 20
+  },
+  {
+    "category": 3,
+    "name": "Лампа",
+    "image": "products_images/product-1.jpg",
+    "short_desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    "price": "1000.00",
+    "quantity": 10
+  },
+  {
+    "category": 1,
+    "name": "Диван",
+    "image": "products_images/product-3-sm.jpg",
+    "short_desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    "price": "10000.00",
+    "quantity": 5
+  },
+  {
+    "category": 2,
+    "name": "Стулья",
+    "image": "products_images/product-2.jpg",
+    "short_desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    "price": "5000.00",
+    "quantity": 10
+  },
+  {
+    "category": 4,
+    "name": "Часы",
+    "image": "products_images/product-4-sm.jpg",
+    "short_desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    "price": "1000.00",
+    "quantity": 20
+  }
+]
