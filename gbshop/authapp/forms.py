@@ -1,12 +1,12 @@
 import hashlib
 import random
+from datetime import timedelta
 
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from django import forms
 
 from authapp.models import ShopUser, ShopUserProfile
-
-
+from django.utils.timezone import now
 
 
 class ShopUserLoginForm(AuthenticationForm):
@@ -42,6 +42,7 @@ class ShopUserRegisterForm(UserCreationForm):
 
         salt = hashlib.sha1(str(random.random()).encode('utf8')).hexdigest()[:6]
         user.activation_key = hashlib.sha1(str(user.email + salt).encode('utf8')).hexdigest()
+        user.activation_key_expires = now() + timedelta(hours=48)
         user.save()
 
         return user
