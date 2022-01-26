@@ -22,6 +22,8 @@ def basket(request):
 
 @login_required
 def basket_add(request, pk):
+    if 'login' in request.META.get('HTTP_REFERER'):
+        return HttpResponseRedirect(reverse('products:detail', args=[pk]))
 
     product = get_object_or_404(Product, pk=pk)
 
@@ -33,9 +35,6 @@ def basket_add(request, pk):
     basket.quantity += 1
     basket.save()
 
-    if 'login' in request.META.get('HTTP_REFERER'):
-        return HttpResponseRedirect(reverse('products:detail', args=[pk]))
-
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
@@ -46,10 +45,12 @@ def basket_remove(request, pk):
 
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
+def is_ajax(self):
+    return self.META.get("HTTP_X_REQUESTED_WITH") == "XMLHttpRequest"
 
 @login_required
 def basket_edit(request, pk, quantity):
-    # if request.is_ajax():  В Django 4 метод HttpRequest.is_ajax() убрали
+    if is_ajax(request):
         quantity = int(quantity)
         new_basket_item = Basket.objects.get(pk=int(pk))
 

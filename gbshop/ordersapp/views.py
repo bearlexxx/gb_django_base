@@ -38,8 +38,9 @@ class OrderCreate(CreateView):
                 for num, form in enumerate(formset.forms):
                     form.initial['product'] = basket_items[num].product
                     form.initial['quantity'] = basket_items[num].quantity
-                    form.initial['price'] = basket_items[num].product.price
-                basket_items.delete()
+                    # form.initial['price'] = basket_items[num].product.price
+                    basket_items[num].delete()
+                # basket_items.delete()
             else:
                 formset = OrderFormSet()
 
@@ -89,7 +90,6 @@ class OrderUpdate(UpdateView):
         orderitems = context['orderitems']
 
         with transaction.atomic():
-            form.instance.user = self.request.user
             self.object = form.save()
             if orderitems.is_valid():
                 orderitems.instance = self.object
