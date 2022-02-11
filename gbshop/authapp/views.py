@@ -114,3 +114,4 @@ def verify(request, email, activation_key):
     except Exception as err:
         print(f'error activation user: {err.args}')
         return HttpResponseRedirect(reverse('index'))
+
