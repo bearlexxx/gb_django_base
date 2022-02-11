@@ -147,3 +147,4 @@ def get_product_price(request, pk):
         product = get_object_or_404(Product, pk=pk)
         return JsonResponse({'price': product.price})
     return JsonResponse({'price': 0})
+

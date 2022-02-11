@@ -71,3 +71,5 @@ def basket_edit(request, pk, quantity):
 
         return JsonResponse({'result': result})
 
+
+

@@ -23,3 +23,4 @@ class TestProductsappSmoke(TestCase):
 
     def tearDown(self):
         call_command('sqlsequencereset', 'mainapp', 'authapp', 'ordersapp', 'basketapp')
+

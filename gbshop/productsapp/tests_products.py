@@ -39,3 +39,4 @@ class ProductsTestCase(TestCase):
     #     products = product_1.get_items()
     #
     #     self.assertEqual(list(products), [product_1, product_3])
+
